@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Travel;
+use App\Entity\User;
 
 class HomepageController extends AbstractController
 {
@@ -12,9 +14,12 @@ class HomepageController extends AbstractController
      */
     public function index()
     {
+        $travels = $this->getDoctrine()
+            ->getRepository(Travel::class)
+            ->findByExampleField();
+
         return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
+            'travels' => $travels,
         ]);
     }
-
 }

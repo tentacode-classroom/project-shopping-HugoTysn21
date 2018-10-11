@@ -1,0 +1,40 @@
+c#
+lors de la declaration il faut allouer l'espace mémoire en instanciant 
+la classe 
+le principe de namespace est simmilairement pareil que en symfony
+polymorphisme : toute les class qui ont en commun une fonction
+sont compatible si une classe animal a une fonction se deplacer()
+alors la fonction se déplacer sera aussi utiliser
+par d'autre classe et qui par conséquent pourrons aller sur la
+class.@override sert a reécrire une method qui est deja creer 
+par le langage
+---
+la surcharge consiste a creer et afficher plusieurs fonctions
+qui ont le meme name mais qui n'auront pas les memes paramètres
+une attendra 1 paramètre et l'autre 2 (par exemple) 
+cela marche du meme principe avec la surcharge de constructeur 
+en POO 
+----- 
+private : visible uniquement dans sa classe; 
+on accède depuis l'exterieur a ses variables via un get(NomVar)
+ce sont des accesseurs
+
+object o = new voiture(); 
+le type déclaré est object qui a o et le type réel est le type voiture();
+le mot clé virtual sert a utilisé une methode qui va etre surcharger par les classe fille 
+auquel cas qui va etre réutiliser la classe hérité aura la meme methode mais celle ci sera 
+overrider;
+--
+public: les methods ou autre seront visible de partout
+---
+protected : accessible uniquement par les classes enfants 
+------
+public construct ()
+Méthode automatiquement invoquéelors de l’instanciation (new) : 
+doit porter le nom de la classe ; 
+doit êtrequalifiée de public ; 
+peut admettre zéro, un ou plusieurs arguments ; 
+
+encapsulation : permet la reutilisation d'une classe avec ses 
+propriété de manière bien définie, c'est une
+manière de conception.

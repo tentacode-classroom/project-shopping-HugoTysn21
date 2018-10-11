@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Travel{% endblock %}
+
+{% block body %}
+    <h1>Travel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ travel.id }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ travel.country }}</td>
+            </tr>
+            <tr>
+                <th>Climate</th>
+                <td>{{ travel.climate }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ travel.city }}</td>
+            </tr>
+            <tr>
+                <th>Season</th>
+                <td>{{ travel.season }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ travel.price }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ travel.picture }}</td>
+            </tr>
+            <tr>
+                <th>Picturetwo</th>
+                <td>{{ travel.picturetwo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('travel_index') }}">back to list</a>
+
+    <a href="{{ path('travel_edit', {'id': travel.id}) }}">edit</a>
+
+    {{ include('travel/_delete_form.html.twig') }}
+{% endblock %}

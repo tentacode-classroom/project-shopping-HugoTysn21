@@ -1,2 +1,49 @@
 {% extends 'base.html.twig' %}
 
+{% block body %}
+    <body>
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">eCity!</h1>
+                <p class="lead text-muted">Welcome on eCity this website describe and sells the most important city in the world.</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                </p>
+            </div>
+        </section>
+
+
+    </main>
+
+    </body>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+
+            {% for travel in travels %}
+                {# La boucle for parcours tous le tableau (travel) ; pour chaque élément on affiche ce qu'il y a l'intérieur du for slug: id c'est pour la route dans l'URL
+                et ensuite on veut afficher un champs de l'éléments travel#}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{ asset (travel.picture) }}"    alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">{{ travel.country }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ path('product', { 'slug': travel.id  }) }}" class="btn btn-sm btn-outline-secondary">View</a>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

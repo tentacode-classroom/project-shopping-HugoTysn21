@@ -1,1 +1,24 @@
 {% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <main role="main">
+            <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
+            <section class="jumbotron text-center">
+                <div class="container">
+                    <figure>
+                        <img src="{{ asset (travel.picturetwo) }}">
+                        <h1 class="jumbotron-heading">{{ travel.city |upper}}</h1>
+                    </figure>
+                </div>
+            </section>
+
+
+        </main>
+        <div>
+            <p>The city of {{ travel.city |upper}} is a very
+                whoever controls the city is  {{ travel.user.lastname }} {{ travel.user.firstname }} </p>
+        </div>
+        {{ dump(travel) }}
+    </div>
+
+{% endblock %}

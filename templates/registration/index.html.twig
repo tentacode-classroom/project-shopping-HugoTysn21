@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}inscription {% endblock%}
+{% form_theme formUser 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+
+<div class="container">
+    {{ form_start(formUser) }}
+    {{ form_row(formUser.firstname,{'attr' : {'placeholder' :"Your Firstname"}}) }}
+    {{ form_row(formUser.lastname,{'attr' : {'placeholder' :"Your lastname"}}) }}
+    {{ form_row(formUser.email,{'attr' : {'placeholder' :"Your Email Adress"}}) }}
+    {{ form_row(formUser.password,{'attr' : {'placeholder' :"Your password"}}) }}
+    {{ form_row(formUser.avatar,{'attr' : {'placeholder' :"Upload file"}}) }}
+    {{ form_row(formUser.save,{'attr' : {'placeholder' :"Envoyez"}}) }}
+    {{ form_end(formUser) }}
+
+</div>
+{% endblock %}
