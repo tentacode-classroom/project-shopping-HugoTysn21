@@ -33,6 +33,8 @@ class RegistrationController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+
             //permet d'encrypter les password pour la bdd
             $plainPassword = $user->getPassword();
             $encryptedPassword = $encoder->encodePassword($user, $plainPassword);
@@ -51,7 +53,7 @@ class RegistrationController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('registration/confirmation.html.twig');
         }
         return $this->render('registration/index.html.twig', [
             'formUser' => $form->createView()

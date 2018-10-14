@@ -28,18 +28,13 @@ class User implements  UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     */
-    /**
      * @Assert\NotBlank()
      * @Assert\Length(min=6)
-     * @Assert\IsTrue(message="The password cannot match your first name or last name")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=50)
-     */
-    /**
      * @Assert\NotBlank()
      * @Assert\Length(min=2)
      */
@@ -47,10 +42,9 @@ class User implements  UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
-     */
-    /**
      * @Assert\NotBlank()
      * @Assert\Length(min=3)
+     * @Assert\NotEqualTo("Gabriel")
      */
     private $lastname;
 
@@ -62,14 +56,22 @@ class User implements  UserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable = true)
      */
+
     private $avatarFileName;
 
+    /**
+     * @Assert\File(
+     *     maxSize = "2048k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
+     * )
+     */
     private $avatar;
 
     /**
      * @ORM\Column(type="simple_array")
      */
-    //pour lors de l'instanciation on defined le role user
+    //lors de l'instanciation on defined le role user
     private $roles = ['ROLE_USER'];
 
     public function __construct()
@@ -240,7 +242,6 @@ class User implements  UserInterface
      */
     public function isPasswordSafe()
     {
-
-        return $this->firstname !== $this->password && $this->lastname !== $this->password;
+        return $this->firstname !== $this->password || $this->lastname !== $this->password;
     }
 }
