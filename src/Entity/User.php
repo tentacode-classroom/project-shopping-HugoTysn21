@@ -244,4 +244,8 @@ class User implements  UserInterface
     {
         return $this->firstname !== $this->password || $this->lastname !== $this->password;
     }
+    public function __toString(): string
+    {
+        return $this->lastname;
+    }
 }

@@ -53,7 +53,7 @@ class RegistrationController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('registration/confirmation.html.twig');
+            return $this->redirectToRoute('/homepage');
         }
         return $this->render('registration/index.html.twig', [
             'formUser' => $form->createView()
